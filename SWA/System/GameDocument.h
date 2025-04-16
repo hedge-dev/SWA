@@ -20,13 +20,17 @@ namespace SWA
                 be<uint32_t> BRank;
                 be<uint32_t> CRank;
                 be<uint32_t> DRank;
-                SWA_INSERT_PADDING(0x0C);
-                be<float> PointMarkerRecordSpeed;
-                SWA_INSERT_PADDING(0x0C);
+                SWA_INSERT_PADDING(0x04);
+                be<float> TimeBonusTimeLimit;
+                be<uint32_t> PointMarkerMaxCount;
+                be<float> PointMarkerRecordSpeed[3];
+                be<float> GoalRingSpeed;
                 be<uint32_t> PointMarkerCount;
                 be<uint32_t> EnemyScore;
                 be<uint32_t> TrickScore;
-                SWA_INSERT_PADDING(0x10);
+                SWA_INSERT_PADDING(0x8);
+                be<float> TimeBonusPerSecond;
+                SWA_INSERT_PADDING(0x4);
             };
 
             SWA_INSERT_PADDING(0x1C);
@@ -53,10 +57,14 @@ namespace SWA
     SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, BRank, 0x08);
     SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, CRank, 0x0C);
     SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, DRank, 0x10);
+    SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, TimeBonusTimeLimit, 0x18);
+    SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, PointMarkerMaxCount, 0x1C);
     SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, PointMarkerRecordSpeed, 0x20);
+    SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, GoalRingSpeed, 0x2C);
     SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, PointMarkerCount, 0x30);
     SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, EnemyScore, 0x34);
     SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, TrickScore, 0x38);
+    SWA_ASSERT_OFFSETOF(CGameDocument::CMember::SScoreInfo, TimeBonusPerSecond, 0x44);
     SWA_ASSERT_SIZEOF(CGameDocument::CMember::SScoreInfo, 0x4C);
 
     SWA_ASSERT_OFFSETOF(CGameDocument::CMember, m_spDatabase, 0x1C);

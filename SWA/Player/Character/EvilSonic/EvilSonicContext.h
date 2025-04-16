@@ -8,7 +8,12 @@ namespace SWA::Player
     class CEvilSonicContext // : public CPlayerContext
     {
     public:
-        SWA_INSERT_PADDING(0x688);
+        SWA_INSERT_PADDING(0x660);
+        be<uint32_t> m_Rings;
+        SWA_INSERT_PADDING(0x10);
+        be<uint32_t> m_CrushScore;
+        be<uint32_t> m_ComboScore;
+        SWA_INSERT_PADDING(0xC);
         be<float> m_DarkGaiaEnergy;
         SWA_INSERT_PADDING(0x138);
         be<uint32_t> m_AnimationID;
